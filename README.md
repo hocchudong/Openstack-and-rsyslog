@@ -6,8 +6,8 @@
 - [I. Mô hình triển khai](#1)
 - [II. Cấu hình chính](#2)
 <ul>
-<li>[a. Server](sv)</li>
-<li>[b. Client](cl)</li>
+<li>[a. Server](#sv)</li>
+<li>[b. Client](#cl)</li>
 </ul>
 - [III. Kiểm tra](#3)
 - [IV. Sử dụng mô hình vừa triển khai để phân tích log](#4)
