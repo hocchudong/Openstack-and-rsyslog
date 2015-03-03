@@ -1,14 +1,35 @@
+#Sử dụng rsyslog để thu thập log trong openstack
+
+<a name="ml"></a>
+[Mục lục](#ml)
+
+- [I. Mô hình triển khai](#1)
+- [II. Cấu hình chính](#2)
+<ul>
+<li>[a. Server](sv)</li>
+<li>[b. Client](cl)</li>
+</ul>
+- [III. Kiểm tra](#3)
+- [IV. Sử dụng mô hình vừa triển khai để phân tích log](#4)
+- [V.Tài liệu tham khảo](#5)
+
+---
 Bài viết này sẽ hướng dẫn sẽ sử dụng rsyslog để thu thập log trong openstack. Cụ thể ở đây sẽ là một rsyslog-server để thu thập log và mô hình openstack triển khai theo 3 node. Ngoài ra các bạn cũng có thể tham khảo thêm các bài viết trước của mình
 
 - [cài đặt openstack](https://github.com/huytm/Oenstack_juno)
 - [log tập trung và rsyslog](https://github.com/huytm/Mot-vai-hieu-biet-ve-log)
 
-##I. Mô hình triển khai mình sử dụng tất cả các OS là ubuntu-14.04.1
+<a name="1"></a>
+##I. Mô hình triển khai 
+
+Ở đây khi triển khai lab mình sử dụng tất cả các OS là ubuntu-14.04.1
 
 <img src="http://i.imgur.com/JoaxVhX.png">
 
+<a name="2"></a>
 ##II. Cấu hình chính
 
+<a name="sv"></a>
 ####a. Tại rsyslog server 
 
 Cấu hình file `vi /etc/rsyslog.conf`
@@ -43,6 +64,8 @@ Và chuyển chủ sở hưu tập tin /log/var cho syslog để nó có thể t
 
 <img src="http://i.imgur.com/yTTZUPR.png">
 
+
+<a name="cl"></a>
 ####b. Tại các client
 
 Ở đây mình xác định trong khi ***triển khai openstack theo mô hình 3 node*** thì ***controller*** node là node quan trọng, và nó có ***gần như*** đầy đủ những log ***mình cần*** để sử dụng phân tích hệ thống. Nên mình sẽ cấu hình để đẩy một số log cần thiết tại node controller, các bạn cũng có thể đẩy những file log ***khác*** tại ***network node*** hoặc ***compute node*** bằng cách thực hiện tương tự như sau
@@ -69,6 +92,8 @@ Các file log khác
 - Khởi động lại rsyslog `service rsyslog restart`
 
 ---
+
+<a name="3"></a>
 ##III. Kiểm tra hoạt động của log server
 
 - Tại log server vào thư mục `cd /var/log`. Tại đây log của mỗi client từ đã được lưu với folder tương ứng
@@ -80,6 +105,8 @@ Với các file log mình đã cấu hình để đẩy lên từ controller nod
 <img src="http://i.imgur.com/cxBzYma.png">
 
 ---
+
+<a name="4"></a>
 ##IV. Sử dụng mô hình vừa triển khai để theo dõi log
 
 - Nova
@@ -130,6 +157,8 @@ Log này thông báo với http code là 200 tức là thông báo mình đã tr
 Log này giúp mình nhận được các thông báo về quá trình đăng nhập vào openstack dashboard
 
 ---
+
+<a name="5"></a>
 ##V. Tài liệu tham khảo
 
 - https://github.com/caongocuy/RSYSLOG
