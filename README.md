@@ -18,11 +18,12 @@ Bài viết này sẽ hướng dẫn sẽ sử dụng rsyslog để thu thập l
 
 - [cài đặt openstack](https://github.com/huytm/Oenstack_juno)
 - [log tập trung và rsyslog](https://github.com/huytm/Mot-vai-hieu-biet-ve-log)
+- [Facility - syslog](https://github.com/huytm/ryslog-for-openstack/blob/master/Facility-syslog-openstack.md)
 
 <a name="1"></a>
 ##I. Mô hình triển khai 
 
-Ở đây khi triển khai lab mình sử dụng tất cả các OS là ubuntu-14.04.1
+Ở đây khi triển khai lab mình sử dụng tất cả các OS là ubuntu-14.04.1 và triển khai theo trường hợp thứ 1 của [bài viết](https://github.com/huytm/ryslog-for-openstack/blob/master/Facility-syslog-openstack.md) này
 
 <img src="http://i.imgur.com/JoaxVhX.png">
 
